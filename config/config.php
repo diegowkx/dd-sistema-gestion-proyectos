@@ -12,22 +12,22 @@ if (MODO_DEBUG) {
 }
 
 // URL Base
-define('BASE_URL', 'http://localhost/dd-sistema-gestion-eventos');
+define('BASE_URL', 'http://localhost/dd-sistema-gestion-proyectos');
 
 // Nombre del sistema
-define('APP_NAME', 'Evenrity');
+define('APP_NAME', 'KanbanPanel');
 define('APP_VERSION', '1.0');
 
 // Credenciales de la base de datos 
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'dd_gestion_eventos_db');
+define('DB_NAME', 'dd_gestion_proyectos_db');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_CHARSET', 'utf8mb4');
 
 // Configuración de sesión segura
 if (session_status() === PHP_SESSION_NONE) {
-    session_name('Evenrity_APP_SESSION');
+    session_name('KanbanPanel_APP_SESSION');
 
     $isSecure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443);
 

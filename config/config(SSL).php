@@ -12,22 +12,22 @@ if (MODO_DEBUG) {
 }
 
 // URL Base
-define('BASE_URL', 'https://evenrity.protechsoluciones.com');
+define('BASE_URL', 'https://kanbanpanel.protechsoluciones.com');
 
 // Nombre del sistema
-define('APP_NAME', 'Evenrity');
+define('APP_NAME', 'KanbanPanel');
 define('APP_VERSION', '1.0');
 
 // Credenciales de la base de datos 
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'ene29pro_dd_gestion_eventos_db');
-define('DB_USER', 'ene29pro_gestion_eventos_db');
+define('DB_NAME', 'ene29pro_dd_gestion_proyectos_db');
+define('DB_USER', 'ene29pro_gestion_proyectos_db');
 define('DB_PASS', 'admin60780343');
 define('DB_CHARSET', 'utf8mb4');
 
 // Configuración de sesión segura
 if (session_status() === PHP_SESSION_NONE) {
-    session_name('Evenrity_APP_SESSION');
+    session_name('KanbanPanel_APP_SESSION');
 
     $isSecure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443);
 
