@@ -1,17 +1,14 @@
 Options -Indexes
 
 RewriteEngine On
-RewriteCond %{REQUEST_URI} ^/(controllers|models|config|docs)/ [NC]
-RewriteRule ^ - [F,L]
 
+# Nunca exponer código fuente, configuración ni documentación interna.
+RewriteRule ^(?:controllers|models|config|docs|helpers)(?:/|$) - [F,L,NC]
+RewriteRule ^views/.+\.php$ - [F,L,NC]
 
-RewriteCond %{REQUEST_URI} ^/views/ [NC]
-RewriteCond %{REQUEST_URI} \.php$ [NC]
-RewriteRule ^ - [F,L]
-# Redirecciones amigables para la Landing Page
-RewriteRule ^eventos$ index.php?c=landing_page&a=eventos [L,QSA]
-RewriteRule ^nosotros$ index.php?c=landing_page&a=nosotros [L,QSA]
-RewriteRule ^detalle$ index.php?c=landing_page&a=detalle [L,QSA]
-
+# Enviar las rutas que no son archivos físicos al front controller.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L,QSA]
 # Bloquear archivos ocultos (.vscode, .htaccess)
 RewriteRule (^|/)\.(?!well-known) - [F]

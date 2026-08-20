@@ -24,10 +24,8 @@
 
             if (in_array($currentController, ['roles', 'usuarios'], true)) {
                 $grupoActual = 'administracion';
-            } elseif ($currentController === 'aprobareventos') {
-                $grupoActual = 'supervision';
-            } elseif (in_array($currentController, ['eventos', 'asistencias', 'certificados'], true)) {
-                $grupoActual = 'gestion_eventos';
+            } elseif (in_array($currentController, ['proyectos', 'gestion_kanban', 'kanban'], true)) {
+                $grupoActual = 'gestion_proyectos';
             }
             ?>
 
@@ -71,62 +69,39 @@
                 </li>
             <?php endif; ?>
 
-            <!-- SUPERVISIÓN -->
-            <?php if (tienePermisoSidebar('APROBAR_EVENTOS')): ?>
-                <li class="sidebar-group <?= ($grupoActual === 'supervision') ? 'sidebar-group-open' : '' ?>" data-group="supervision">
+            <!-- GESTIÓN DE PROYECTOS -->
+            <?php if (tienePermisoSidebar('GESTIONAR_PROYECTOS')): ?>
+                <li class="sidebar-group <?= ($grupoActual === 'gestion_proyectos') ? 'sidebar-group-open' : '' ?>" data-group="gestion_proyectos">
                     <a href="javascript:void(0);" class="sidebar-group-toggle">
-                        <i class="fas fa-clipboard-check"></i>
-                        <span class="nav-text">Supervisión</span>
+                        <i class="fas fa-project-diagram"></i>
+                        <span class="nav-text">Gestión de Proyectos</span>
                         <i class="fas fa-chevron-down sidebar-group-arrow"></i>
                     </a>
                     <ul class="sidebar-submenu">
-                        <li class="<?= ($currentController === 'supervision') ? 'mm-active' : '' ?>">
-                            <a class="ai-icon" href="?c=supervision">
-                                <i class="fas fa-check-circle"></i>
-                                <span class="nav-text">Aprobación de Eventos</span>
-                            </a>
-                        </li>
+                        <?php if (tienePermisoSidebar('GESTIONAR_PROYECTOS')): ?>
+                            <li class="<?= ($currentController === 'proyectos') ? 'mm-active' : '' ?>">
+                                <a class="ai-icon" href="?c=proyectos">
+                                    <i class="fas fa-folder-open"></i>
+                                    <span class="nav-text">Proyectos</span>
+                                </a>
+                            </li>
+                            <li class="<?= ($currentController === 'gestion_kanban') ? 'mm-active' : '' ?>">
+                                <a class="ai-icon" href="?c=gestion_kanban">
+                                    <i class="fas fa-columns"></i>
+                                    <span class="nav-text">Gestión Kanban</span>
+                                </a>
+                            </li>
+                        <?php endif; ?>
                     </ul>
                 </li>
             <?php endif; ?>
 
-            <!-- GESTIÓN DE EVENTOS -->
-            <?php
-            $tieneGestionEventos = tienePermisoSidebar('EVENTOS') || tienePermisoSidebar('ASISTENCIAS') || tienePermisoSidebar('CERTIFICADOS');
-            ?>
-            <?php if ($tieneGestionEventos): ?>
-                <li class="sidebar-group <?= ($grupoActual === 'gestion_eventos') ? 'sidebar-group-open' : '' ?>" data-group="gestion_eventos">
-                    <a href="javascript:void(0);" class="sidebar-group-toggle">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span class="nav-text">Gestión de Eventos</span>
-                        <i class="fas fa-chevron-down sidebar-group-arrow"></i>
+            <?php if (tienePermisoSidebar('KANBAN')): ?>
+                <li class="sidebar-group <?= ($grupoActual === 'gestion_proyectos' && $currentController === 'kanban') ? 'sidebar-group-open' : '' ?>" data-group="kanban-miembro">
+                    <a class="ai-icon" href="?c=kanban">
+                        <i class="fas fa-tasks"></i>
+                        <span class="nav-text">Mi Kanban</span>
                     </a>
-                    <ul class="sidebar-submenu">
-                        <?php if (tienePermisoSidebar('EVENTOS')): ?>
-                            <li class="<?= ($currentController === 'eventos') ? 'mm-active' : '' ?>">
-                                <a class="ai-icon" href="?c=eventos">
-                                    <i class="fas fa-calendar-day"></i>
-                                    <span class="nav-text">Eventos</span>
-                                </a>
-                            </li>
-                        <?php endif; ?>
-                        <?php if (tienePermisoSidebar('ASISTENCIAS')): ?>
-                            <li class="<?= ($currentController === 'asistencias') ? 'mm-active' : '' ?>">
-                                <a class="ai-icon" href="?c=asistencias">
-                                    <i class="fas fa-user-check"></i>
-                                    <span class="nav-text">Asistencias</span>
-                                </a>
-                            </li>
-                        <?php endif; ?>
-                        <?php if (tienePermisoSidebar('CERTIFICADOS')): ?>
-                            <li class="<?= ($currentController === 'certificados') ? 'mm-active' : '' ?>">
-                                <a class="ai-icon" href="?c=certificados">
-                                    <i class="fas fa-certificate"></i>
-                                    <span class="nav-text">Certificados</span>
-                                </a>
-                            </li>
-                        <?php endif; ?>
-                    </ul>
                 </li>
             <?php endif; ?>
 

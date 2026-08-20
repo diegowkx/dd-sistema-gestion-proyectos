@@ -17,6 +17,11 @@
 <!-- 5. SweetAlert2 JS (Local) -->
 <script src="<?php echo BASE_URL; ?>/assets/js/sweetalert2.all.min.js"></script>
 
+<?php if (in_array(strtolower((string)($_GET['c'] ?? '')), ['kanban', 'gestion_kanban'], true)): ?>
+<!-- SortableJS local para el tablero Kanban -->
+<script src="<?php echo BASE_URL; ?>/assets/js/vendor/Sortable.min.js"></script>
+<?php endif; ?>
+
 <!-- 6. Configuración centralizada de JS -->
 <script src="<?php echo BASE_URL; ?>/assets/js/config.js"></script>
 

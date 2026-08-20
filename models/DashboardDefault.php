@@ -14,15 +14,14 @@ class DashboardDefault {
     public function getDatosGeneralesDefault(): array {
         $stmt = $this->pdo->query("
             SELECT
-                COALESCE(SUM(publicacion = 'APROBADO'), 0) AS eventos_publicados,
-                COALESCE(SUM(publicacion = 'PENDIENTE'), 0) AS eventos_pendientes,
-                COALESCE(SUM(publicacion = 'RECHAZADO'), 0) AS eventos_rechazados,
-                COUNT(*) AS eventos_totales
-            FROM eventos
+                COUNT(*) AS proyectos_totales,
+                COALESCE(SUM(fecha_vencimiento_global >= NOW()), 0) AS proyectos_vigentes,
+                COALESCE(SUM(fecha_vencimiento_global < NOW()), 0) AS proyectos_vencidos
+            FROM proyectos
             WHERE activo = 1
         ");
         $data = $stmt->fetch(PDO::FETCH_ASSOC) ?: [];
-        foreach (['eventos_totales', 'eventos_publicados', 'eventos_pendientes', 'eventos_rechazados'] as $field) {
+        foreach (['proyectos_totales', 'proyectos_vigentes', 'proyectos_vencidos'] as $field) {
             $data[$field] = (int)($data[$field] ?? 0);
         }
         return $data;

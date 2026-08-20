@@ -13,11 +13,11 @@ require_once __DIR__ . '/config/database.php';
 
 $controllerName = isset($_GET['c'])
     ? strtolower((string)$_GET['c'])
-    : 'landing_page';
+    : 'auth';
 
 $actionName = isset($_GET['a'])
     ? strtolower((string)$_GET['a'])
-    : 'index';
+    : ($controllerName === 'auth' ? 'login' : 'index');
 
 /*
 |--------------------------------------------------------------------------
@@ -40,18 +40,12 @@ $controllerName = preg_replace('/[^a-z0-9_]/', '', $controllerName);
 $actionName     = preg_replace('/[^a-z0-9_]/', '', $actionName);
 
 if ($controllerName === '') {
-    $controllerName = 'landing_page';
+    $controllerName = 'auth';
 }
 
 if ($actionName === '') {
     $actionName = 'index';
 }
-
-// Mantener compatibles las URLs antiguas del landing público.
-$controllerName = match ($controllerName) {
-    'landing', 'landingpage' => 'landing_page',
-    default => $controllerName,
-};
 
 /*
 |--------------------------------------------------------------------------
@@ -73,14 +67,10 @@ $isAjaxRequest =
 | auth:
 |   Login
 |
-| landing_page:
-|   Sitio público de Terra Sogno
-|
 */
 
 $publicControllers = [
-    'auth',
-    'landing_page'
+    'auth'
 ];
 
 /*
@@ -96,26 +86,17 @@ if (
     !isset($_SESSION['user_id']) &&
     !in_array($controllerName, $publicControllers, true)
 ) {
-
     if ($isAjaxRequest) {
-
         header('Content-Type: application/json; charset=utf-8');
         http_response_code(401);
-
         echo json_encode([
             'success' => false,
             'message' => 'Su sesión ha expirado. Inicie sesión nuevamente.'
         ]);
-
         exit;
     }
 
-    header(
-        'Location: ' .
-        BASE_URL .
-        '?c=auth&a=login'
-    );
-
+    header('Location: ' . BASE_URL . '?c=auth&a=login');
     exit;
 }
 
@@ -123,18 +104,6 @@ if (
 |--------------------------------------------------------------------------
 | CONVERTIR NOMBRE DEL CONTROLADOR
 |--------------------------------------------------------------------------
-|
-| landing_page
-|     ↓
-| LandingPage
-|     ↓
-| LandingPageController
-|
-| inmuebles
-|     ↓
-| Inmuebles
-|     ↓
-| InmueblesController
 |
 */
 

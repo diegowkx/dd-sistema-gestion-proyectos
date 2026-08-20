@@ -14,7 +14,7 @@
             <div class="overlay"></div>
             <div class="brand-welcome">
                 <h1 class="text-bold"><?php echo APP_NAME; ?></h1>
-                <p>Sistema de Gestión de Eventos</p>
+                <p>Sistema de Gestión de Proyectos</p>
             </div>
         </div>
 

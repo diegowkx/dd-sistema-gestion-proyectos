@@ -3,7 +3,7 @@
     <div class="footer-sidebar-piece">
         <div class="footer-sidebar-brand">
             <span class="status-dot"></span>
-            <span class="system-status-text">Sistema Inmobiliario</span>
+            <span class="system-status-text">Sistema de Proyectos</span>
         </div>
     </div>
     

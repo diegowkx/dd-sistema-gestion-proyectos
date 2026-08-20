@@ -22,7 +22,7 @@
                         </p>
                     </div>
                     <div class="col-md-6 text-md-end mt-2 mt-md-0">
-                        <span class="fs-5 text-bold text-accent">Sistema de Eventos</span>
+                        <span class="fs-5 text-bold text-accent">Sistema de Proyectos</span>
                     </div>
                 </div>
 
@@ -46,32 +46,32 @@
                     <div class="col-6 col-lg-3">
                         <div class="card card-custom border-0 shadow-sm rounded-4 h-100">
                             <div class="card-body p-3 p-md-4">
-                                <span class="extra-small text-muted text-uppercase fw-bold">Eventos totales</span>
-                                    <h2 class="fw-bold mb-0 mt-1" id="kpi_eventos_totales">—</h2>
+                                <span class="extra-small text-muted text-uppercase fw-bold">Proyectos totales</span>
+                                    <h2 class="fw-bold mb-0 mt-1" id="kpi_proyectos_totales">—</h2>
                             </div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="card card-custom border-0 shadow-sm rounded-4 h-100">
                             <div class="card-body p-3 p-md-4">
-                                <span class="extra-small text-muted text-uppercase fw-bold">Eventos pendientes</span>
-                                    <h2 class="fw-bold mb-0 mt-1 text-warning" id="kpi_eventos_pendientes">—</h2>
+                                <span class="extra-small text-muted text-uppercase fw-bold">Proyectos vigentes</span>
+                                    <h2 class="fw-bold mb-0 mt-1 text-success" id="kpi_proyectos_vigentes">—</h2>
                             </div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="card card-custom border-0 shadow-sm rounded-4 h-100">
                             <div class="card-body p-3 p-md-4">
-                                <span class="extra-small text-muted text-uppercase fw-bold">Ventas realizadas</span>
-                                <h2 class="fw-bold mb-0 mt-1" id="kpi_ventas_realizadas">—</h2>
+                                <span class="extra-small text-muted text-uppercase fw-bold">Tareas totales</span>
+                                <h2 class="fw-bold mb-0 mt-1" id="kpi_tareas_totales">—</h2>
                             </div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3">
                         <div class="card card-custom border-0 shadow-sm rounded-4 h-100">
                             <div class="card-body p-3 p-md-4">
-                                <span class="extra-small text-muted text-uppercase fw-bold">Ingresos estimados</span>
-                                <h2 class="fw-bold mb-0 mt-1 text-success" id="kpi_ingresos_estimados">—</h2>
+                                <span class="extra-small text-muted text-uppercase fw-bold">Tareas completadas</span>
+                                <h2 class="fw-bold mb-0 mt-1 text-success" id="kpi_tareas_completadas">—</h2>
                             </div>
                         </div>
                     </div>
@@ -83,8 +83,8 @@
                     <div class="col-12 col-lg-4 mb-4">
                         <div class="card card-custom border-0 shadow-sm rounded-4 h-100">
                             <div class="card-body p-4">
-                                <h5 class="fw-bold mb-1">Estado de publicación</h5>
-                                <p class="extra-small text-muted mb-4">Eventos activos según su revisión.</p>
+                                <h5 class="fw-bold mb-1">Estado de proyectos</h5>
+                                <p class="extra-small text-muted mb-4">Proyectos activos según su fecha de vencimiento.</p>
                                 <div id="lista-publicacion">
                                     <p class="text-muted extra-small mb-0">Cargando...</p>
                                 </div>
@@ -95,8 +95,8 @@
                     <div class="col-12 col-lg-4 mb-4">
                         <div class="card card-custom border-0 shadow-sm rounded-4 h-100">
                             <div class="card-body p-4">
-                                <h5 class="fw-bold mb-1">Asistencia</h5>
-                                <p class="extra-small text-muted mb-4">Participantes registrados y asistentes.</p>
+                                <h5 class="fw-bold mb-1">Avance del trabajo</h5>
+                                <p class="extra-small text-muted mb-4">Tareas completadas dentro de los proyectos.</p>
                                 <div id="lista-asistencia">
                                     <p class="text-muted extra-small mb-0">Cargando...</p>
                                 </div>
@@ -107,8 +107,8 @@
                     <div class="col-12 col-lg-4 mb-4">
                         <div class="card card-custom border-0 shadow-sm rounded-4 h-100">
                             <div class="card-body p-4">
-                                <h5 class="fw-bold mb-1">Certificaciones</h5>
-                                <p class="extra-small text-muted mb-4">Estado de emisión por participante.</p>
+                                <h5 class="fw-bold mb-1">Equipo activo</h5>
+                                <p class="extra-small text-muted mb-4">Usuarios habilitados para trabajar en el sistema.</p>
                                 <div id="lista-certificaciones">
                                     <p class="text-muted extra-small mb-0">Cargando...</p>
                                 </div>
@@ -119,8 +119,8 @@
                     <div class="col-12 mb-4">
                         <div class="card card-custom border-0 shadow-sm rounded-4">
                             <div class="card-body p-4">
-                                <h5 class="fw-bold mb-1">Ingresos y ventas por fecha</h5>
-                                <p class="extra-small text-muted mb-4">Ingresos estimados según la fecha del evento.</p>
+                                <h5 class="fw-bold mb-1">Proyectos iniciados por fecha</h5>
+                                <p class="extra-small text-muted mb-4">Distribución de proyectos por fecha de inicio.</p>
                                 <canvas id="chart_ingresos" height="90"></canvas>
                                 <p id="mensaje-chart-ingresos" class="text-muted extra-small mb-0 d-none">No hay ingresos para el rango seleccionado.</p>
                             </div>
