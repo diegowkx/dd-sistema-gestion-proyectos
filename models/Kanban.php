@@ -47,10 +47,23 @@ class Kanban {
             }, $columna['tareas']), static fn(array $tarea): bool => $tarea !== []));
         }
         unset($columna);
+        foreach ($tablero as &$columna) {
+            foreach ($columna['tareas'] as &$tarea) {
+                $entregasPropias = [];
+                foreach ($tarea['entregas_detalle'] as &$entrega) {
+                    $entrega['es_propia'] = $entrega['usuario_username'] === $username;
+                    if ($entrega['es_propia']) $entregasPropias[] = $entrega;
+                }
+                unset($entrega);
+                $tarea['mi_entrega'] = $entregasPropias[0] ?? null;
+            }
+            unset($tarea);
+        }
+        unset($columna);
         if (!$esLider) {
             foreach ($tablero as &$columna) {
                 foreach ($columna['tareas'] as &$tarea) {
-                    $tarea['entregas_detalle'] = $tarea['mi_entrega'] ? [$tarea['mi_entrega']] : [];
+                    $tarea['entregas_detalle'] = array_values(array_filter($tarea['entregas_detalle'], static fn(array $entrega): bool => $entrega['es_propia']));
                 }
                 unset($tarea);
             }

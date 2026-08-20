@@ -4,13 +4,13 @@
 
 .font-primary-family {
 
-    /* Colores y Utilidades de Texto (#0e2f44) */
+    /* Colores y Utilidades de Texto */
     & .text-accent {
-        color: #0e2f44 !important;
+        color: #3b82f6 !important;
     }
 
     & .icon-accent {
-        color: #0e2f44;
+        color: #3b82f6;
     }
 
     & .fs-7 {
@@ -19,41 +19,42 @@
 
     /* Tarjetas del Dashboard */
     & .dashboard-card {
-        border: none;
+        border: 1px solid #e2e8f0;
         border-radius: 12px;
-        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
         background-color: #ffffff;
     }
 
     /* Tarjetas KPI de Resumen */
     & .card-kpi {
-        border-radius: 18px;
+        border-radius: 12px;
         background-color: #ffffff;
+        border: 1px solid #e2e8f0;
 
         &.kpi-accent {
-            border: 2px solid #0e2f44 !important;
+            border-left: 4px solid #3b82f6 !important;
         }
 
         &.kpi-danger {
-            border: 2px solid #ef4444 !important;
+            border-left: 4px solid #ef4444 !important;
         }
 
         &.kpi-success {
-            border: 2px solid #10b981 !important;
+            border-left: 4px solid #10b981 !important;
         }
     }
 
     /* Cajas Contenedoras de Iconos KPI */
     & .kpi-icon-box {
-        padding: 1rem;
-        border-radius: 50%;
+        padding: 0.85rem;
+        border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
 
         &.bg-soft-accent {
-            background-color: rgba(14, 47, 68, 0.08); /* Fondo azul suave para el ícono principal */
-            color: #0e2f44;
+            background-color: #eff6ff; /* Fondo azul suave */
+            color: #3b82f6;
         }
 
         &.bg-soft-danger {
@@ -70,31 +71,32 @@
     /* Filtros y Form Control */
     & .filter-input {
         border: 1px solid #cbd5e1;
-        border-radius: 8px;
-        font-family: var(--font-secondary-id, system-ui, sans-serif);
-        font-size: 0.9rem;
-        color: #334155;
+        border-radius: 6px;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        font-size: 0.88rem;
+        color: #0f172a;
+        padding: 0.45rem 0.75rem;
 
         &:focus {
-            border-color: #0e2f44;
-            box-shadow: 0 0 0 3px rgba(14, 47, 68, 0.15);
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
             outline: none;
         }
     }
 
     & .btn-filter {
-        background-color: #0e2f44;
-        border-color: #0e2f44;
+        background-color: #0f172a;
+        border-color: #0f172a;
         color: #ffffff;
-        font-family: var(--font-primary-id, system-ui, sans-serif);
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
         font-weight: 600;
         padding: 0.5rem 1.25rem;
-        border-radius: 8px;
-        transition: all 0.25s ease;
+        border-radius: 6px;
+        transition: all 0.15s ease;
 
         &:hover {
-            background-color: #09202f;
-            border-color: #09202f;
+            background-color: #1e293b;
+            border-color: #1e293b;
             color: #ffffff;
             transform: translateY(-1px);
         }
@@ -102,7 +104,7 @@
 
     /* Elementos Auxiliares del Modal */
     & .badge-dark-custom {
-        background-color: #0e2f44;
+        background-color: #0f172a;
         color: #ffffff;
         padding: 0.4em 0.8em;
         border-radius: 6px;

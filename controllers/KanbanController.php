@@ -63,7 +63,7 @@ class KanbanController {
         $modelo = $this->modelo($pdo);
         $proyectos = $modelo->getProyectosParticipante($this->usuarioActual());
         $title = 'Mi Kanban';
-        require_once __DIR__ . '/../views/kanban/miembro.php';
+        require_once __DIR__ . '/../views/kanban/index.php';
     }
 
     public function datos(PDO $pdo): void {

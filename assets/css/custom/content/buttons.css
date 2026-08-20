@@ -3,47 +3,53 @@
    ========================================================================== */
 
 .btn-primary-custom {
-    background-color: #907C6A !important;
+    background-color: #3b82f6 !important; /* Blue 500 */
     color: #ffffff !important;
-    border: 1px solid #82705f !important;
-    font-family: var(--font-primary-id, system-ui, sans-serif);
+    border: 1px solid #2563eb !important;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     font-weight: 600;
-    padding: 0.55rem 1.5rem;
-    border-radius: 0 !important;
+    padding: 0.55rem 1.25rem;
+    border-radius: 6px !important;
     transition: all 0.15s ease;
-    box-shadow: none !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
 }
 
 .btn-primary-custom:hover {
-    background-color: #7d6a59 !important;
-    border-color: #7d6a59 !important;
+    background-color: #2563eb !important;
+    border-color: #1d4ed8 !important;
     color: #ffffff !important;
-    transform: none !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2) !important;
 }
 
 .btn-light-creative {
-    background-color: #f7f5f2;
-    border: 1px solid #e3ded8;
-    color: #2a2623;
-    border-radius: 0 !important;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1; /* Slate 300 */
+    color: #0f172a;            /* Slate 900 */
+    font-weight: 500;
+    border-radius: 6px !important;
+    padding: 0.55rem 1.25rem;
     transition: all 0.15s ease;
 }
 
 .btn-light-creative:hover {
-    background-color: #eae5de;
-    color: #2a2623;
+    background-color: #f8fafc; /* Slate 50 */
+    border-color: #94a3b8;
+    color: #0f172a;
 }
 
 .btn-gradient-primary {
-    background: #907C6A !important;
+    background: #0f172a !important; /* Dark Slate */
     color: #ffffff !important;
-    border: 1px solid #82705f !important;
-    border-radius: 0 !important;
+    border: 1px solid #1e293b !important;
+    border-radius: 6px !important;
+    padding: 0.55rem 1.25rem;
+    font-weight: 600;
     transition: all 0.15s ease;
 }
 
 .btn-gradient-primary:hover {
-    background-color: #7d6a59 !important;
-    transform: none !important;
-    box-shadow: none !important;
+    background-color: #1e293b !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.15) !important;
 }

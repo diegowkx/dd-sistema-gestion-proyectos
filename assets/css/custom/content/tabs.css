@@ -3,24 +3,25 @@
    ========================================================================== */
 
 .nav-pills-custom .nav-link {
-    font-family: var(--font-primary-id, system-ui, sans-serif);
-    font-weight: 600;
-    border-radius: 0 !important;
-    padding: 0.5rem 1.25rem;
-    color: #5c554e;
-    background-color: #f7f5f2;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-weight: 500;
+    border-radius: 6px !important;
+    padding: 0.55rem 1.25rem;
+    color: #475569;            /* Slate 600 */
+    background-color: #f8fafc; /* Slate 50 */
     transition: all 0.15s ease;
-    border: 1px solid #e3ded8;
+    border: 1px solid #e2e8f0;
 }
 
 .nav-pills-custom .nav-link:hover {
-    color: #2a2623;
-    background-color: rgba(144, 124, 106, 0.12);
+    color: #0f172a;
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
 }
 
 .nav-pills-custom .nav-link.active {
-    background-color: #907C6A !important;
+    background-color: #3b82f6 !important; /* Blue 500 */
     color: #ffffff !important;
-    border-color: #82705f !important;
-    box-shadow: none !important;
+    border-color: #2563eb !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
 }

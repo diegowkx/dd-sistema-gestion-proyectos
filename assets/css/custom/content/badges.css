@@ -4,19 +4,22 @@
 
 /* Badge Estándar del Sistema */
 .badge-custom-dark {
-    background-color: var(--color-primary-main, #907C6A);
-    color: #ffffff;
-    padding: 0.35em 0.7em;
-    border-radius: 0 !important;
+    background-color: #0f172a; /* Slate 900 */
+    color: #f8fafc;
+    padding: 0.35em 0.75em;
+    border-radius: 6px !important;
     font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
 }
 
-/* Badge Especial / Premium */
+/* Badge Especial / Acento Azul */
 .badge-luxury-gold {
-    background-color: #f7f5f2;
-    color: #5c4f43;
-    border: 1px solid #e3ded8;
+    background-color: rgba(59, 130, 246, 0.1); /* Blue 500 suave */
+    color: #2563eb;                             /* Blue 600 */
+    border: 1px solid rgba(59, 130, 246, 0.25);
     font-size: 0.75rem;
     font-weight: 600;
-    border-radius: 0 !important;
+    border-radius: 6px !important;
+    padding: 0.35em 0.75em;
 }

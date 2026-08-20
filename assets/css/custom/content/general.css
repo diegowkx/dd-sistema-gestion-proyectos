@@ -2,22 +2,19 @@
    ESTILOS GENERALES Y UTILIDADES (general.css)
    ========================================================================== */
 
-.font-primary-family {
-    font-family: var(--font-primary-id, system-ui, sans-serif);
-}
-
+.font-primary-family,
 .font-secondary-family {
-    font-family: var(--font-secondary-id, system-ui, sans-serif);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important;
 }
 
 /* Colores Base y Utilidades de Texto */
-.bg-slate-50 { background-color: #f8fafc; }
-.text-slate-800 { color: #1b1711; }
-.text-slate-600 { color: #574838; }
+.bg-slate-50 { background-color: #f8fafc !important; }
+.text-slate-800 { color: #0f172a !important; }
+.text-slate-600 { color: #475569 !important; }
 .border-slate-100 { border-color: #e2e8f0 !important; }
 
 .text-accent {
-    color: #907C6A !important;
+    color: #3b82f6 !important; /* Blue 500 */
 }
 
 .text-white-80 {

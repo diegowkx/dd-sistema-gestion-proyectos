@@ -7,7 +7,7 @@
     </div>
 
     <div class="deznav-scroll position-relative">
-        <ul class="metismenu px-2" id="menu">
+        <ul class="metismenu" id="menu">
 
             <?php
             $currentController = strtolower((string)($_GET['c'] ?? $_GET['controller'] ?? 'dashboard'));
@@ -29,7 +29,8 @@
             }
             ?>
 
-            <!-- DASHBOARD -->
+            <!-- SECCIÓN: GENERAL -->
+            <li class="menu-heading">General</li>
             <li class="<?= ($currentController === 'dashboard') ? 'mm-active' : '' ?>">
                 <a class="ai-icon" href="<?php echo $dashboardUrl; ?>">
                     <i class="fas fa-th-large"></i>
@@ -37,11 +38,12 @@
                 </a>
             </li>
 
-            <!-- ADMINISTRACIÓN -->
+            <!-- SECCIÓN: SISTEMA -->
             <?php
             $tieneAdministracion = tienePermisoSidebar('ROLES') || tienePermisoSidebar('USUARIOS');
             ?>
             <?php if ($tieneAdministracion): ?>
+                <li class="menu-heading">Configuración</li>
                 <li class="sidebar-group <?= ($grupoActual === 'administracion') ? 'sidebar-group-open' : '' ?>" data-group="administracion">
                     <a href="javascript:void(0);" class="sidebar-group-toggle">
                         <i class="fas fa-cogs"></i>
@@ -69,7 +71,11 @@
                 </li>
             <?php endif; ?>
 
-            <!-- GESTIÓN DE PROYECTOS -->
+            <!-- SECCIÓN: OPERACIONES -->
+            <?php if (tienePermisoSidebar('GESTIONAR_PROYECTOS') || tienePermisoSidebar('KANBAN')): ?>
+                <li class="menu-heading">Proyectos</li>
+            <?php endif; ?>
+
             <?php if (tienePermisoSidebar('GESTIONAR_PROYECTOS')): ?>
                 <li class="sidebar-group <?= ($grupoActual === 'gestion_proyectos') ? 'sidebar-group-open' : '' ?>" data-group="gestion_proyectos">
                     <a href="javascript:void(0);" class="sidebar-group-toggle">

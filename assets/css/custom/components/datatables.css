@@ -14,13 +14,13 @@
 .dt-info,
 .dt-paging,
 .dt-paging button {
-    font-family: var(--font-secondary-id, system-ui, sans-serif) !important;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !important;
 }
 
 /* Contenedor principal */
 .dt-container {
     font-size: 0.88rem !important;
-    color: #2a2623 !important;
+    color: #1e293b !important; /* Slate 800 */
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
@@ -36,7 +36,7 @@
 .dt-container .dt-layout-row .dt-layout-cell {
     width: 100% !important;
     max-width: 100% !important;
-    overflow-x: auto !important; /* Scroll horizontal único dentro de la tabla */
+    overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important; 
     box-sizing: border-box !important;
 }
@@ -44,107 +44,101 @@
 /* 2. CONTROLES: "MOSTRAR REGISTROS" Y "BUSCAR" */
 .dt-container .dt-search label,
 .dt-container .dt-length label {
-    color: #5c554e !important;
+    color: #475569 !important; /* Slate 600 */
     font-weight: 500 !important;
 }
 
 .dt-container .dt-length select {
-    border: 1px solid #e3ded8 !important;
-    border-radius: 0 !important;
-    padding: 0.35rem 0.6rem !important;
+    border: 1px solid #cbd5e1 !important; /* Slate 300 */
+    border-radius: 6px !important;
+    padding: 0.4rem 0.75rem !important;
     background-color: #ffffff !important;
-    color: #2a2623 !important;
+    color: #0f172a !important; /* Slate 900 */
     outline: none !important;
 }
 
 .dt-container .dt-search input {
-    border: 1px solid #e3ded8 !important;
-    border-radius: 0 !important;
-    padding: 0.35rem 0.75rem !important;
+    border: 1px solid #cbd5e1 !important; /* Slate 300 */
+    border-radius: 6px !important;
+    padding: 0.4rem 0.75rem !important;
     background-color: #ffffff !important;
-    color: #2a2623 !important;
+    color: #0f172a !important; /* Slate 900 */
     outline: none !important;
     margin-left: 0.5rem !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
 }
 
-/* Focus en controles con el tono Principal (#907C6A) */
+/* Focus en controles con azul de acento (#3b82f6) */
 .dt-container .dt-search input:focus,
 .dt-container .dt-length select:focus {
-    border-color: #907C6A !important;
-    box-shadow: 0 0 0 2px rgba(144, 124, 106, 0.2) !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15) !important;
 }
 
-/* 3. TABLA, CELDAS Y ACOMODO DE BADGES EN VARIAS FILAS */
+/* 3. TABLA Y CELDAS (FONDO CLARO) */
 table.dataTable {
     width: 100% !important;
     min-width: 650px !important;
     border-collapse: separate !important;
-    border-spacing: 0 0.25rem !important;
-    border: none !important;
+    border-spacing: 0 !important;
+    border: 1px solid #e2e8f0 !important; /* Slate 200 */
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    background-color: #ffffff !important;
 }
 
 table.dataTable thead th {
-    font-family: var(--font-secondary-id, system-ui, sans-serif) !important;
-    font-weight: 700 !important;
-    color: #5c4f43 !important;
-    background-color: #f7f5f2 !important;
-    border-bottom: 2px solid #e3ded8 !important;
+    font-weight: 600 !important;
+    color: #475569 !important; /* Slate 600 */
+    background-color: #f8fafc !important; /* Slate 50 */
+    border-bottom: 1px solid #e2e8f0 !important;
     padding: 0.85rem 1rem !important;
-    font-size: 0.82rem !important;
+    font-size: 0.75rem !important;
     text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
     white-space: nowrap !important;
-    border-radius: 0 !important;
 }
 
 table.dataTable tbody td {
-    font-family: var(--font-secondary-id, system-ui, sans-serif) !important;
     padding: 0.85rem 1rem !important;
     vertical-align: middle !important;
-    color: #2a2623 !important;
+    color: #334155 !important; /* Slate 700 */
     background-color: #ffffff !important;
-    border-top: 1px solid #f1eeeb !important;
-    border-bottom: 1px solid #f1eeeb !important;
-    white-space: normal !important; /* Permite saltos de línea para evitar tablas infinitas */
+    border-top: 1px solid #f1f5f9 !important; /* Slate 100 */
+    white-space: normal !important;
 }
 
-/* Ajuste específico para la columna de Módulos / Badges */
+/* Badges e insignias dentro de la tabla */
 table.dataTable tbody td .badge,
 table.dataTable tbody td .badge-custom-dark,
 table.dataTable tbody td .badge-pill-glow,
 table.dataTable tbody td span.badge {
     display: inline-block !important;
-    white-space: nowrap !important; /* Mantiene cada etiqueta individual legible */
+    white-space: nowrap !important;
     margin-right: 4px !important;
     margin-bottom: 4px !important;
-    border-radius: 0 !important;
+    border-radius: 4px !important;
 }
 
-/* Limita el ancho máximo de la columna de módulos para forzar la doble o triple fila */
 table.dataTable tbody td:nth-child(3) {
     max-width: 380px !important;
     min-width: 250px !important;
 }
 
-/* Hover en filas con tono café muy suave */
+/* Hover en filas suave */
 table.dataTable tbody tr:hover td {
-    background-color: rgba(144, 124, 106, 0.05) !important;
+    background-color: #f8fafc !important; /* Slate 50 */
 }
 
 /* 4. TEXTO DE INFORMACIÓN DE PIE */
 .dt-container .dt-info {
-    font-family: var(--font-secondary-id, system-ui, sans-serif) !important;
-    color: #8c827a !important;
+    color: #64748b !important; /* Slate 500 */
     padding-top: 0.85rem !important;
     font-size: 0.85rem !important;
 }
 
-/* ==========================================================================
-   5. PAGINACIÓN DATATABLES V2 - SOBRIA, RECTA Y CAFÉ (#907C6A)
-   ========================================================================== */
-
-/* Contenedor general de paginación */
+/* 5. PAGINACIÓN DATATABLES V2 */
 .dt-container .dt-paging {
     display: flex !important;
     align-items: center !important;
@@ -154,7 +148,6 @@ table.dataTable tbody tr:hover td {
     overflow: hidden !important;
 }
 
-/* Base cuadrada y limpia para TODOS los botones */
 .dt-container .dt-paging .dt-paging-button {
     display: inline-flex !important;
     align-items: center !important;
@@ -162,31 +155,19 @@ table.dataTable tbody tr:hover td {
     width: 34px !important;
     height: 34px !important;
     min-width: 34px !important;
-    max-width: 34px !important;
-    max-height: 34px !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
-    border: 1px solid #e3ded8 !important;
-    background: #f7f5f2 !important;
-    color: #5c554e !important;
-    font-family: var(--font-secondary-id, system-ui, sans-serif) !important;
-    font-weight: 600 !important;
+    border-radius: 6px !important;
+    border: 1px solid #e2e8f0 !important;
+    background: #ffffff !important;
+    color: #475569 !important;
+    font-weight: 500 !important;
     font-size: 0.85rem !important;
     outline: none !important;
     box-shadow: none !important;
     cursor: pointer !important;
-    overflow: hidden !important;
-    line-height: 1 !important;
     transition: all 0.15s ease !important;
 }
 
-.dt-container .dt-paging .dt-paging-button * {
-    font-size: 0.85rem !important;
-    color: inherit !important;
-}
-
-/* Ocultar texto/flechas nativas en botones de navegación */
+/* Flechas de navegación */
 .dt-container .dt-paging .dt-paging-button.first,
 .dt-container .dt-paging .dt-paging-button.previous,
 .dt-container .dt-paging .dt-paging-button.next,
@@ -195,7 +176,6 @@ table.dataTable tbody tr:hover td {
     font-size: 0 !important;
 }
 
-/* Iconos FontAwesome limpios para flechas */
 .dt-container .dt-paging .dt-paging-button.first::before,
 .dt-container .dt-paging .dt-paging-button.previous::before,
 .dt-container .dt-paging .dt-paging-button.next::before,
@@ -203,9 +183,8 @@ table.dataTable tbody tr:hover td {
     font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", FontAwesome !important;
     font-weight: 900 !important;
     font-size: 0.8rem !important;
-    color: #5c554e !important;
+    color: #64748b !important;
     display: inline-block !important;
-    line-height: 1 !important;
 }
 
 .dt-container .dt-paging .dt-paging-button.first::before { content: "\f100" !important; }
@@ -213,85 +192,45 @@ table.dataTable tbody tr:hover td {
 .dt-container .dt-paging .dt-paging-button.next::before { content: "\f105" !important; }
 .dt-container .dt-paging .dt-paging-button.last::before { content: "\f101" !important; }
 
-/* PÁGINA ACTIVA EN COLOR PRINCIPAL (#907C6A) */
-html body .dt-container .dt-paging button.dt-paging-button.current,
-html body .dt-container .dt-paging a.dt-paging-button.current,
+/* Botón de Página Activa */
 html body .dt-container .dt-paging .dt-paging-button.current,
-html body .dt-container .dt-paging .dt-paging-button.current:hover,
-html body .dt-container .dt-paging .dt-paging-button.current:focus {
-    background-color: #907C6A !important;
-    background: #907C6A !important;
+html body .dt-container .dt-paging .dt-paging-button.current:hover {
+    background-color: #3b82f6 !important;
     color: #ffffff !important;
-    border-radius: 0 !important;
-    border: 1px solid #82705f !important;
-    box-shadow: none !important;
-    transform: none !important;
-    -webkit-text-fill-color: #ffffff !important;
+    border-color: #3b82f6 !important;
 }
 
-/* Forzar color blanco en cualquier hijo interno */
-html body .dt-container .dt-paging .dt-paging-button.current *,
-html body .dt-container .dt-paging button.dt-paging-button.current * {
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-}
-
-/* HOVER EN BOTONES Y FLECHAS HABILITADAS */
+/* Hover en Botones */
 .dt-container .dt-paging .dt-paging-button:hover:not(.current):not([disabled]):not(.disabled) {
-    background: rgba(144, 124, 106, 0.12) !important;
-    color: #5c4f43 !important;
-    border-color: #907C6A !important;
-    transform: none !important;
+    background: #f1f5f9 !important; /* Slate 100 */
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
 }
 
-.dt-container .dt-paging .dt-paging-button:hover:not(.current):not([disabled]):not(.disabled)::before {
-    color: #5c4f43 !important;
-}
-
-/* FLECHAS DESHABILITADAS */
+/* Botones Deshabilitados */
 .dt-container .dt-paging .dt-paging-button[disabled],
 .dt-container .dt-paging .dt-paging-button.disabled {
-    background: #ffffff !important;
-    opacity: 0.4 !important;
+    background: #f8fafc !important;
+    opacity: 0.5 !important;
     cursor: not-allowed !important;
-    transform: none !important;
-    box-shadow: none !important;
-    border-color: #e3ded8 !important;
+    border-color: #e2e8f0 !important;
 }
 
-.dt-container .dt-paging .dt-paging-button[disabled]::before,
-.dt-container .dt-paging .dt-paging-button.disabled::before {
-    color: #8c827a !important;
-}
-
-/* ==========================================================================
-   6. ADAPTACIÓN RESPONSIVA MÓVIL Y TABLET (HASTA 991px)
-   ========================================================================== */
-
+/* 6. ADAPTACIÓN RESPONSIVA MÓVIL Y TABLET */
 @media (max-width: 991.98px) {
     .dt-container .dt-layout-row:first-child {
         display: flex !important;
         flex-direction: column !important;
         gap: 0.75rem !important;
         align-items: stretch !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
     }
 
     .dt-container .dt-length {
         width: 100% !important;
         display: flex !important;
-        flex-direction: row !important;
         align-items: center !important;
         justify-content: flex-start !important;
         gap: 0.5rem !important;
-        margin: 0 !important;
-    }
-
-    .dt-container .dt-length select {
-        width: auto !important;
-        min-width: 70px !important;
-        margin-top: 0 !important;
     }
 
     .dt-container .dt-search {
@@ -299,14 +238,10 @@ html body .dt-container .dt-paging button.dt-paging-button.current * {
         display: flex !important;
         flex-direction: column !important;
         align-items: stretch !important;
-        text-align: left !important;
-        margin: 0 !important;
     }
 
     .dt-container .dt-search input {
         width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
         margin-left: 0 !important;
         margin-top: 0.25rem !important;
     }
@@ -315,19 +250,9 @@ html body .dt-container .dt-paging button.dt-paging-button.current * {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        justify-content: center !important;
         gap: 0.5rem !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
     }
 
-    .dt-container .dt-info {
-        text-align: center !important;
-        padding-top: 0.5rem !important;
-    }
-
-    .dt-container .dt-paging {
-        justify-content: center !important;
-        flex-wrap: wrap !important;
-    }
+    .dt-container .dt-info { text-align: center !important; }
+    .dt-container .dt-paging { justify-content: center !important; flex-wrap: wrap !important; }
 }
