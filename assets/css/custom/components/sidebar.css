@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ESTRUCTURA Y DISEÑO SIDEBAR - INMOBILIARIA EJECUTIVO (sidebar.css)
+   ESTRUCTURA Y DISEÑO SIDEBAR - PROYECTOS KANBAN (sidebar.css)
    ========================================================================== */
 
 :root {
@@ -90,7 +90,7 @@ body {
     justify-content: center !important;
     width: 100% !important;
     height: 100% !important;
-    padding: 0.5rem !important;
+    padding: 0.25rem 0.75rem !important;
     box-sizing: border-box !important;
 }
 
@@ -98,12 +98,13 @@ body {
 .nav-header .sidebar-logo {
     display: block !important;
     width: auto !important;
-    max-width: 100% !important;
+    max-width: 90% !important;     
     height: auto !important;
-    max-height: 42px !important;
+    max-height: 58px !important;  
     object-fit: contain !important;
     z-index: 3 !important;
     margin: 0 auto !important;
+    transition: all 0.2s ease-in-out;
 }
 
 .nav-header .sidebar-logo-icon {
@@ -111,7 +112,7 @@ body {
     width: auto !important;
     max-width: 100% !important;
     height: auto !important;
-    max-height: 36px !important;
+    max-height: 44px !important;
     object-fit: contain !important;
     z-index: 3 !important;
     margin: 0 auto !important;
