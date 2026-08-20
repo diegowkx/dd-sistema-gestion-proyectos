@@ -2,15 +2,18 @@
 
 declare(strict_types=1);
 
-class Dashboard {
+class Dashboard
+{
 
     private PDO $pdo;
 
-    public function __construct(PDO $pdo) {
+    public function __construct(PDO $pdo)
+    {
         $this->pdo = $pdo;
     }
 
-    public function getResumenGeneral(?string $fechaDesde = null, ?string $fechaHasta = null): array {
+    public function getResumenGeneral(?string $fechaDesde = null, ?string $fechaHasta = null): array
+    {
         [$filtroProyecto, $params] = $this->filtroFechaProyecto($fechaDesde, $fechaHasta);
 
         $stmt = $this->pdo->prepare("
@@ -41,7 +44,8 @@ class Dashboard {
         return $data;
     }
 
-    public function getOcupacionPorTipo(?string $fechaDesde = null, ?string $fechaHasta = null): array {
+    public function getOcupacionPorTipo(?string $fechaDesde = null, ?string $fechaHasta = null): array
+    {
         [$filtroProyecto, $params] = $this->filtroFechaProyecto($fechaDesde, $fechaHasta);
         $stmt = $this->pdo->prepare("SELECT
                 COALESCE(SUM(fecha_vencimiento_global >= NOW()), 0) AS vigentes,
@@ -52,7 +56,8 @@ class Dashboard {
         return ['VIGENTES' => (int)($row['vigentes'] ?? 0), 'VENCIDOS' => (int)($row['vencidos'] ?? 0)];
     }
 
-    public function getIngresosUltimos7Dias(?string $fechaDesde = null, ?string $fechaHasta = null): array {
+    public function getIngresosUltimos7Dias(?string $fechaDesde = null, ?string $fechaHasta = null): array
+    {
         [$filtroProyecto, $params] = $this->filtroFechaProyecto($fechaDesde, $fechaHasta);
         $stmt = $this->pdo->prepare("SELECT DATE(fecha_inicio_global) AS fecha, COUNT(*) AS proyectos
             FROM proyectos WHERE activo = 1 {$filtroProyecto}
@@ -61,7 +66,8 @@ class Dashboard {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    private function filtroFechaProyecto(?string $fechaDesde, ?string $fechaHasta): array {
+    private function filtroFechaProyecto(?string $fechaDesde, ?string $fechaHasta): array
+    {
         $filtros = [];
         $params = [];
         if ($fechaDesde !== null && $fechaDesde !== '') {
@@ -81,7 +87,8 @@ class Dashboard {
     /**
      * Registra el acceso de un usuario con su IP en la tabla iphys.
      */
-    public function registrarAccesoIp(string $username, string $rol, string $ip): bool {
+    public function registrarAccesoIp(string $username, string $rol, string $ip): bool
+    {
         $stmt = $this->pdo->prepare("
             INSERT INTO iphys (usuario_username, rol_name, ip_address, fecha_acceso) 
             VALUES (:username, :rol, :ip, NOW())
@@ -97,7 +104,8 @@ class Dashboard {
     /**
      * Obtiene el historial completo de IPs registradas con el nombre del usuario.
      */
-    public function getHistorialIps(): array {
+    public function getHistorialIps(): array
+    {
         $stmt = $this->pdo->query("
             SELECT 
                 i.id,
@@ -117,7 +125,8 @@ class Dashboard {
     /**
      * Obtiene el detalle específico de un registro de IP.
      */
-    public function getIpDetalleById(int $id): array|false {
+    public function getIpDetalleById(int $id): array|false
+    {
         $stmt = $this->pdo->prepare("
             SELECT 
                 i.id,
@@ -136,6 +145,4 @@ class Dashboard {
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
-    
 }

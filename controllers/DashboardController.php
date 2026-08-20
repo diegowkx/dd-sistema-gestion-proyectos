@@ -41,8 +41,8 @@ class DashboardController {
         require_once __DIR__ . '/../models/Dashboard.php';
         $dashboardModel = new Dashboard($pdo);
 
-        $fechaDesde = $this->obtenerFechaFiltro($_GET['fecha_desde'] ?? null) ?? date('Y-m-01');
-        $fechaHasta = $this->obtenerFechaFiltro($_GET['fecha_hasta'] ?? null) ?? date('Y-m-t');
+        $fechaDesde = $this->obtenerFechaFiltro($_GET['fecha_desde'] ?? null) ?? date('Y-01-01');
+        $fechaHasta = $this->obtenerFechaFiltro($_GET['fecha_hasta'] ?? null) ?? date('Y-12-31');
         if ($fechaDesde !== null && $fechaHasta !== null && $fechaDesde > $fechaHasta) {
             echo json_encode(['success' => false, 'message' => 'El rango de fechas no es válido.']);
             exit;

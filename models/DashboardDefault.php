@@ -2,16 +2,19 @@
 
 declare(strict_types=1);
 
-class DashboardDefault {
+class DashboardDefault
+{
 
     private PDO $pdo;
 
-    public function __construct(PDO $pdo) {
+    public function __construct(PDO $pdo)
+    {
         $this->pdo = $pdo;
     }
 
-    
-    public function getDatosGeneralesDefault(): array {
+
+    public function getDatosGeneralesDefault(): array
+    {
         $stmt = $this->pdo->query("
             SELECT
                 COUNT(*) AS proyectos_totales,

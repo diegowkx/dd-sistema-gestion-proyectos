@@ -116,17 +116,6 @@
                         </div>
                     </div>
 
-                    <div class="col-12 mb-4">
-                        <div class="card card-custom border-0 shadow-sm rounded-4">
-                            <div class="card-body p-4">
-                                <h5 class="fw-bold mb-1">Proyectos iniciados por fecha</h5>
-                                <p class="extra-small text-muted mb-4">Distribución de proyectos por fecha de inicio.</p>
-                                <canvas id="chart_ingresos" height="90"></canvas>
-                                <p id="mensaje-chart-ingresos" class="text-muted extra-small mb-0 d-none">No hay ingresos para el rango seleccionado.</p>
-                            </div>
-                        </div>
-                    </div>
-
                     <?php if ($esAdministrador): ?>
                     <!-- HISTORIAL DE IPS (solo administradores) -->
                     <div class="col-12">

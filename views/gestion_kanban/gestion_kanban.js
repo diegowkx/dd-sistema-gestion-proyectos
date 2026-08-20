@@ -14,7 +14,12 @@ $(function () {
     let sortables = [];
     let sortableColumnas = null;
 
-    proyectoSelect.addEventListener('change', cargarTablero);
+    proyectoSelect.addEventListener('change', () => {
+        if (proyectoSelect.value) localStorage.setItem('kanban_proyecto_id', proyectoSelect.value);
+        else localStorage.removeItem('kanban_proyecto_id');
+        cargarTablero();
+    });
+    restaurarProyecto();
     btnColumna.addEventListener('click', () => { formColumna.reset(); $('#tituloModalColumna').text('Nueva columna'); modalColumna.show(); });
     btnTarea.addEventListener('click', () => abrirModalTarea());
 
@@ -27,6 +32,14 @@ $(function () {
             tablero = { columnas: result.columnas || [], miembros: result.miembros || [] };
             renderBoard();
         }).catch(() => Swal.fire('Error', 'No se pudo cargar el tablero.', 'error'));
+    }
+
+    function restaurarProyecto() {
+        const proyectoGuardado = localStorage.getItem('kanban_proyecto_id');
+        if (proyectoGuardado && Array.from(proyectoSelect.options).some(option => option.value === proyectoGuardado)) {
+            proyectoSelect.value = proyectoGuardado;
+            cargarTablero();
+        }
     }
 
     function renderBoard() {

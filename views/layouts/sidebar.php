@@ -24,7 +24,7 @@
 
             if (in_array($currentController, ['roles', 'usuarios'], true)) {
                 $grupoActual = 'administracion';
-            } elseif (in_array($currentController, ['proyectos', 'gestion_kanban', 'kanban'], true)) {
+            } elseif (in_array($currentController, ['proyectos', 'gestion_kanban'], true)) {
                 $grupoActual = 'gestion_proyectos';
             }
             ?>
@@ -97,7 +97,7 @@
             <?php endif; ?>
 
             <?php if (tienePermisoSidebar('KANBAN')): ?>
-                <li class="sidebar-group <?= ($grupoActual === 'gestion_proyectos' && $currentController === 'kanban') ? 'sidebar-group-open' : '' ?>" data-group="kanban-miembro">
+                <li class="sidebar-group" data-group="kanban-miembro">
                     <a class="ai-icon" href="?c=kanban">
                         <i class="fas fa-tasks"></i>
                         <span class="nav-text">Mi Kanban</span>

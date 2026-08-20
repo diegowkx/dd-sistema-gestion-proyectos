@@ -30,6 +30,12 @@ $(function () {
         container.innerHTML = Object.entries(labels).map(([key, label]) => { const amount = Number(values[key] || 0); const percent = total ? Math.round(amount * 100 / total) : 0; return `<div class="mb-3"><div class="d-flex justify-content-between extra-small"><span>${label}</span><strong>${amount}</strong></div><div class="progress" style="height:8px"><div class="progress-bar ${colors[key]}" style="width:${percent}%"></div></div></div>`; }).join('');
     };
 
+    function establecerRangoAnual() {
+        const year = new Date().getFullYear();
+        $('#fecha_desde').val(`${year}-01-01`);
+        $('#fecha_hasta').val(`${year}-12-31`);
+    }
+
     function cargarResumen() {
         const params = new URLSearchParams({ c: 'dashboard', a: 'resumen' });
         ['fecha_desde', 'fecha_hasta'].forEach(id => { const value = document.getElementById(id)?.value; if (value) params.set(id, value); });
@@ -44,6 +50,7 @@ $(function () {
     }
 
     $('#filtro-dashboard').on('submit', event => { event.preventDefault(); cargarResumen(); });
-    $('#limpiar-filtro-dashboard').on('click', () => { $('#fecha_desde, #fecha_hasta').val(''); cargarResumen(); });
+    $('#limpiar-filtro-dashboard').on('click', () => { establecerRangoAnual(); cargarResumen(); });
+    establecerRangoAnual();
     cargarResumen();
 });
